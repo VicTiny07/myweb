@@ -152,6 +152,29 @@
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    /* 🚀 Rocket styles */
+    .rocket {
+      position: absolute;
+      font-size: 1.5rem;
+      animation: launch 4s linear forwards;
+      white-space: nowrap;
+      z-index: 999;
+    }
+
+    @keyframes launch {
+      0% {
+        transform: translateY(100vh) rotate(-20deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(20deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -173,7 +196,6 @@
     <div class="message" id="messageBox">
       <p>
         Agie i love you sooo soooo much. You've filled my life with joy and love in a way I never thought was possible MWAHHH
-
       </p>
       <p class="signature">— bubba bear</p>
     </div>
@@ -199,7 +221,6 @@
     setInterval(updateCounter, 1000);
     updateCounter();
 
-    // Heart reveal
     const heart = document.getElementById("heart");
     const messageBox = document.getElementById("messageBox");
 
@@ -208,7 +229,6 @@
       messageBox.style.display = "block";
     });
 
-    // Flying hearts animation
     const heartBg = document.getElementById("heartBg");
 
     function createHeart() {
@@ -216,11 +236,26 @@
       heart.style.left = `${Math.random() * 100}%`;
       heart.style.animationDuration = `${5 + Math.random() * 5}s`;
       heartBg.appendChild(heart);
-
       setTimeout(() => heart.remove(), 10000);
     }
 
     setInterval(createHeart, 300);
+
+    // 🚀 Rocket feature
+    function launchRocket() {
+      const rocket = document.createElement("div");
+      rocket.className = "rocket";
+      rocket.style.left = Math.random() * 90 + "%";
+      rocket.innerHTML = "🚀 nice ass";
+
+      document.body.appendChild(rocket);
+
+      setTimeout(() => {
+        rocket.remove();
+      }, 4000);
+    }
+
+    setInterval(launchRocket, 5000); // Change to 2000 for more chaos
   </script>
 </body>
 </html>
