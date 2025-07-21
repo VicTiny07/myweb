@@ -3,14 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BELLOOO BUBBBAA</title>
+  <title>HAPPY 4TH MONTH ANNIVERSARY!</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to top right, #fff0f5, #ffe6f0);
@@ -20,217 +15,192 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #333;
-    }
-
-    .heart-bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
+      flex-direction: column;
     }
 
     .heart-bg i {
       position: absolute;
-      display: block;
-      width: 20px;
-      height: 20px;
+      width: 20px; height: 20px;
       background: #ff80ab;
       transform: rotate(45deg);
       animation: float 10s linear infinite;
       opacity: 0.7;
     }
-
-    .heart-bg i::before,
-    .heart-bg i::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
+    .heart-bg i::before, .heart-bg i::after {
+      content: ''; position: absolute;
+      width: 100%; height: 100%; border-radius: 50%;
       background: #ff80ab;
-      border-radius: 50%;
     }
-
-    .heart-bg i::before {
-      top: -50%;
-      left: 0;
-    }
-
-    .heart-bg i::after {
-      left: -50%;
-      top: 0;
-    }
+    .heart-bg i::before { top: -50%; left: 0; }
+    .heart-bg i::after { left: -50%; top: 0; }
 
     @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 0;
-      }
-      50% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(45deg);
-        opacity: 0;
-      }
-    }
-
-    .container {
-      text-align: center;
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      width: 90%;
-      max-width: 600px;
-      animation: fadeIn 2s ease-in-out;
-      z-index: 1;
-      position: relative;
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #e60073;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      color: #ff1493;
+      text-shadow: 2px 2px 5px #000;
+      animation: rainbowText 2s infinite alternate;
     }
 
-    h2 {
-      color: #cc0052;
-      margin-bottom: 20px;
+    @keyframes rainbowText {
+      from { color: #ff1493; }
+      to { color: #ffa500; }
     }
 
-    .counter, .live-time {
+    #puzzle {
+      margin-top: 20px;
+    }
+
+    .puzzle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .tile {
+      background-color: #ffd6e7;
+      padding: 15px;
       font-size: 1.2rem;
-      margin: 10px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      user-select: none;
     }
 
-    .heart-box {
-      width: 150px;
-      height: 150px;
-      background: #ff4d88;
-      clip-path: polygon(50% 0%, 100% 30%, 85% 100%, 50% 75%, 15% 100%, 0% 30%);
-      margin: 30px auto;
-      cursor: pointer;
-      transition: transform 0.4s ease;
+    #plane {
+      position: absolute;
+      top: 100px;
+      left: -300px;
+      animation: fly 10s linear infinite;
       display: flex;
       align-items: center;
-      justify-content: center;
+    }
+
+    @keyframes fly {
+      0% { left: -300px; }
+      100% { left: 110%; }
+    }
+
+    .flag {
+      background: #ffb6c1;
       color: white;
-      font-weight: bold;
-      font-size: 1rem;
-      box-shadow: 0 5px 15px rgba(255, 77, 136, 0.3);
+      font-size: 1.5rem;
+      padding: 10px 30px;
+      margin-left: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+
+    .animals {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
       animation: bounce 2s infinite;
+    }
+    .animals img {
+      width: 50px;
+      margin: 0 10px;
     }
 
     @keyframes bounce {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
-    .heart-box:hover {
-      transform: scale(1.1);
+    #photos {
+      margin-top: 15px;
     }
-
-    .message {
-      display: none;
-      margin-top: 20px;
-      background: #fff0f5;
-      padding: 20px;
-      border-left: 5px solid #ff66b2;
+    #photos img {
+      width: 80px;
+      margin: 5px;
       border-radius: 10px;
-      animation: fadeIn 1s ease;
-    }
-
-    .signature {
-      margin-top: 25px;
-      font-style: italic;
-      color: #99004d;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* 🚀 Rocket styles */
-    .rocket {
-      position: absolute;
-      font-size: 1.5rem;
-      animation: launch 4s linear forwards;
-      white-space: nowrap;
-      z-index: 999;
-    }
-
-    @keyframes launch {
-      0% {
-        transform: translateY(100vh) rotate(-20deg);
-        opacity: 0;
-      }
-      20% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-120vh) rotate(20deg);
-        opacity: 0;
-      }
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
+  <div class="heart-bg" id="heartBg"></div>
 
-  <div class="heart-bg" id="heartBg">
-    <!-- Flying hearts will appear here -->
+  <div id="plane">
+    <img src="https://i.ibb.co/JpcDdf3/plane.png" width="100">
+    <div class="flag">🎉 4TH MONTH ANNIVERSARY 🎉</div>
   </div>
 
-  <div class="container">
-    <h1>BELLOOO BUBBBAA</h1>
-    <h2>Since March 22, 2025</h2>
-    <p class="counter">That’s <span id="days">...</span> days of loveeeeeeee yayaayaayayay</p>
-    <p class="live-time">Love counter: <span id="liveTimer">00d 00h 00m 00s</span></p>
+  <h1>HAPPY 4 MONTHS BUBBAAAA 💖</h1>
 
-    <div class="heart-box" id="heart">
-      💝 Click to open 💝
-    </div>
+  <div id="puzzle">
+    <h3>Can you solve this?</h3>
+    <div class="puzzle-grid" id="grid"></div>
+    <p id="puzzleMsg"></p>
+  </div>
 
-    <div class="message" id="messageBox">
-      <p>
-        Agie i love you sooo soooo much. You've filled my life with joy and love in a way I never thought was possible MWAHHH
-      </p>
-      <p class="signature">— bubba bear</p>
-    </div>
+  <div id="photos">
+    <h3>Our Memories 💕</h3>
+    <!-- Replace src with your own photo links -->
+    <img src="your-photo-url-1.jpg" alt="us">
+    <img src="your-photo-url-2.jpg" alt="us">
+  </div>
+
+  <div class="animals">
+    <img src="https://i.ibb.co/0FcSyYQ/cat.png">
+    <img src="https://i.ibb.co/TmNffNn/dog.png">
+    <img src="https://i.ibb.co/GkJdhcN/bunny.png">
+    <img src="https://i.ibb.co/YcWmR4J/tiger.png">
+    <img src="https://i.ibb.co/FK5m8N0/capybara.png">
   </div>
 
   <script>
-    const startDate = new Date("March 22, 2025 00:00:00");
+    const grid = document.getElementById('grid');
+    const puzzleMsg = document.getElementById('puzzleMsg');
 
-    function updateCounter() {
-      const now = new Date();
-      const diff = now - startDate;
+    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, ''];
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById('days').textContent = days;
-      document.getElementById('liveTimer').textContent =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
     }
 
-    setInterval(updateCounter, 1000);
-    updateCounter();
+    function drawGrid() {
+      grid.innerHTML = '';
+      numbers.forEach((num, i) => {
+        const tile = document.createElement('div');
+        tile.classList.add('tile');
+        tile.textContent = num;
+        tile.onclick = () => moveTile(i);
+        grid.appendChild(tile);
+      });
+    }
 
-    const heart = document.getElementById("heart");
-    const messageBox = document.getElementById("messageBox");
+    function moveTile(index) {
+      const emptyIndex = numbers.indexOf('');
+      const validMoves = [index - 1, index + 1, index - 3, index + 3];
+      if (validMoves.includes(emptyIndex)) {
+        [numbers[index], numbers[emptyIndex]] = [numbers[emptyIndex], numbers[index]];
+        drawGrid();
+        checkWin();
+      }
+    }
 
-    heart.addEventListener("click", () => {
-      heart.style.display = "none";
-      messageBox.style.display = "block";
-    });
+    function checkWin() {
+      if (JSON.stringify(numbers) === JSON.stringify([1,2,3,4,5,6,7,8,''])) {
+        puzzleMsg.textContent = 'YAAAYYY You Did It!!! 🧠💖';
+      }
+    }
+
+    shuffle(numbers);
+    drawGrid();
 
     const heartBg = document.getElementById("heartBg");
-
     function createHeart() {
       const heart = document.createElement('i');
       heart.style.left = `${Math.random() * 100}%`;
@@ -238,24 +208,10 @@
       heartBg.appendChild(heart);
       setTimeout(() => heart.remove(), 10000);
     }
-
     setInterval(createHeart, 300);
-
-    // 🚀 Rocket feature
-    function launchRocket() {
-      const rocket = document.createElement("div");
-      rocket.className = "rocket";
-      rocket.style.left = Math.random() * 90 + "%";
-      rocket.innerHTML = "🚀 nice ass";
-
-      document.body.appendChild(rocket);
-
-      setTimeout(() => {
-        rocket.remove();
-      }, 4000);
-    }
-
-    setInterval(launchRocket, 5000); // Change to 2000 for more chaos
   </script>
+
+  <!-- Uploading your pictures: Use imgbb.com or postimages.org. Upload, then copy the "direct link" and paste it into the src="..." -->
+
 </body>
 </html>
